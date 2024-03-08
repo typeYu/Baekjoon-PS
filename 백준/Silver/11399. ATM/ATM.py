@@ -1,8 +1,9 @@
-N = int(input())
-people = list(map(int, input().split()))
-people.sort()
+import sys
+N = int(sys.stdin.readline().strip())
+array = list(map(int, sys.stdin.readline().strip().split()))
+array.sort()
 result = 0
-for i in range(len(people) + 1): #1,2,3,4,5
-    for j in range(i):
-        result += people[j]
+for i in array:
+    result += i * N
+    N -= 1
 print(result)
