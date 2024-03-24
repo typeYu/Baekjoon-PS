@@ -1,15 +1,15 @@
 from collections import deque
 T = int(input())
-def bfs(x, y):
-    queue = deque([(x, y)])
-    graph[x][y] = 0
+def bfs(y, x):
+    queue = deque([(y, x)])
+    graph[y][x] = 0
     while queue:
-        x, y = queue.popleft()
-        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < M and graph[nx][ny] == 1:
-                queue.append((nx, ny))
-                graph[nx][ny] = 0
+        y, x = queue.popleft()
+        for dy, dx in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            ny, nx = y + dy, x + dx
+            if 0 <= nx < M and 0 <= ny < N and graph[ny][nx] == 1:
+                queue.append((ny, nx))
+                graph[ny][nx] = 0
 
 while T:
     M, N, K = map(int, input().split())
