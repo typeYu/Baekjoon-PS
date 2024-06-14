@@ -1,0 +1,19 @@
+import sys
+N, M = map(int, sys.stdin.readline().rstrip().split())
+height = list(map(int, sys.stdin.readline().rstrip().split()))
+height.insert(0, 0) # 날짜가 1번째부터 시작하므로 아무 의미 없는 0번째 인덱스를 추가해준다
+
+save = set() # 3일동안의 땅 위치를 저장해줄 집합
+for i in range(1, M+1):
+	si, ei = map(int, sys.stdin.readline().rstrip().split())
+	for j in range(si, ei + 1):
+		height[j] += 1
+		save.add(j)
+		
+	if i % 3 == 0:
+		for s in save:
+			height[s] -= 1
+		save.clear()
+
+for h in range(1, len(height)):
+	print(height[h], end=" ")
