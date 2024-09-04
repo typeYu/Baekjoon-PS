@@ -1,0 +1,12 @@
+cards = [i for i in range(1, 21)]
+for _ in range(10):
+    a, b = map(int, input().split())
+    for i in range((b - a + 1) // 2):
+        temp = cards[b - 1]
+        cards[b - 1] = cards[a - 1]
+        cards[a - 1] = temp
+
+        a += 1
+        b -= 1
+
+print(*cards)
