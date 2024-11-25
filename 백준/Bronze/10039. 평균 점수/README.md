@@ -1,5 +1,6 @@
 # [Bronze IV] 평균 점수 - 10039 
 
+
 [문제 링크](https://www.acmicpc.net/problem/10039) 
 ### 성능 요약
 
