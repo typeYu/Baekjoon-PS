@@ -8,6 +8,6 @@ for i in range(1, N + 1):
         if j < W:
             dp[i][j] = max(dp[i][j - 1], dp[i - 1][j])
         else:
-            dp[i][j] = max(dp[i][j], dp[i - 1][j - W] + V, dp[i - 1][j])
+            dp[i][j] = max(dp[i - 1][j - W] + V, dp[i - 1][j])
 
 print(dp[N][K])
