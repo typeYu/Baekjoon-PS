@@ -8,23 +8,25 @@ for _ in range(M):
     graph[a].append(b)
     inDegree[b] += 1
 
-def topology_sort():
-    result = []
-    queue = deque()
-
-    for i in range(1, N + 1): # 진입 차수가 0인 정점이라면
-        if inDegree[i] == 0:
-            queue.append(i)
+def topology_sort(arr):
+    result = arr
+    queue = deque(arr)
 
     while queue:
         q = queue.popleft()
-        result.append(q)
-        for l in graph[q]:
-            inDegree[l] -= 1
-            if inDegree[l] == 0:
-                queue.append(l)
+        for g in graph[q]:
+            inDegree[g] -= 1
+            if inDegree[g] == 0:
+                queue.append(g)
+                result.append(g)
 
-    for r in result:
-        print(r, end=' ')
+    return result
 
-topology_sort()
+
+zero_inDegree = []
+for node in range(1, N + 1):
+    if inDegree[node] == 0:
+        zero_inDegree.append(node)
+
+print(*topology_sort(zero_inDegree))
+
