@@ -1,15 +1,22 @@
 import sys
-sys.setrecursionlimit(10**7)
+from collections import deque
 
 
-def dfs(cur, parent):
-    visited[cur] = True
+def bfs():
+    visited[1] = True
+    queue = deque([1])
+    record = [[-1, 1]] # 노드 1부터 시작하여 부모-자식 노드 기록
 
-    for nxt in graph[cur]:
-        if nxt == parent:
-            continue
+    while queue:
+        q = queue.popleft()
+        for nxt in graph[q]:
+            if not visited[nxt]:
+                visited[nxt] = True
+                queue.append(nxt)
+                record.append([q, nxt])
 
-        dfs(nxt, cur)
+    # 기록된 연결 노드들 중 맨 끝 노드부터 dp 시작
+    for cur, nxt in reversed(record):
 
         # 현재 노드를 선택 하지 않는다면 반드시 다음 노드 선택
         dp[cur][0] += dp[nxt][1]
@@ -27,5 +34,5 @@ for _ in range(N - 1):
     graph[a].append(b)
     graph[b].append(a)
 
-dfs(1, -1)
-print(min(dp[1][0], dp[1][1]))
+bfs()
+print(min(dp[1]))
