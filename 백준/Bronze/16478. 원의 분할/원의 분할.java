@@ -1,19 +1,18 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
+  public static void main(String[] args) throws Exception {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    StringTokenizer st = new StringTokenizer(br.readLine());
 
-	public static void main(String[] args) {
+    double pab = Double.parseDouble(st.nextToken());
+    double pbc = Double.parseDouble(st.nextToken());
+    double pcd = Double.parseDouble(st.nextToken());
 
-	Scanner scanner = new Scanner(System.in);
-	
-	int ab = scanner.nextInt();//ab의 길이
-	int bc = scanner.nextInt();
-	int cd = scanner.nextInt();
-	
-	double da = ab*bc/cd;
+    double pda = (pab * pcd) / pbc;
 
-	System.out.println(String.format("%.6f", da));
-	
-	}
-	
+    System.out.println(pda);
+  }
 }
