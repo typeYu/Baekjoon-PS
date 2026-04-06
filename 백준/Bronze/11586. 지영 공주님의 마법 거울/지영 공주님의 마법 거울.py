@@ -1,13 +1,12 @@
-import sys
-input = sys.stdin.readline
-
 n = int(input())
-mirror = [input().rstrip() for _ in range(n)]
-k = int(input())
-
-if k == 1:
-    print(*mirror, sep='\n')
-elif k == 2:
-    print(*[i[::-1] for i in mirror], sep='\n')
-else:
-    print(*mirror[::-1], sep='\n')
+li = []
+for i in range(n):
+    li.append(input())
+K = int(input())
+if K == 2:
+    for i in range(n):
+        li[i] = li[i][::-1]
+elif K == 3:
+    li = li[::-1]
+for i in range(n):
+    print(li[i])
