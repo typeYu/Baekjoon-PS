@@ -12,21 +12,18 @@ def solution(maps):
     queue = deque([start + [0, 0]]) # able, count
     visited = [[False] * W for _ in range(H)]
     visited[start[0]][start[1]] = True
-    lever = False
 
     while queue:
         y, x, able, cnt = queue.popleft()
-        if lever and not able:
-            continue
         
         if maps[y][x] == "E" and able == 1:
             return cnt
         
         if maps[y][x] == "L":
+            queue.clear()
             able = 1
             visited = [[False] * W for _ in range(H)]
             visited[y][x] = True
-            lever = True
         
         for dy, dx in [[1, 0], [0, 1], [-1, 0], [0, -1]]:
             ny, nx = y + dy, x + dx
