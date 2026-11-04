@@ -23,6 +23,7 @@ def solution(jobs):
             else:
                 break
         
+        # queue에서 시작할 수 있는 작업이 없으면 시간을 증가시켜줘야 함
         if not queue:
             times += 1
             continue
