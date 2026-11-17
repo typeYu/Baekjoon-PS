@@ -22,13 +22,10 @@ def solution(n, m, board):
                     lets_remove.add((i, j + 1))
                     lets_remove.add((i + 1, j + 1))
         
-        l = len(lets_remove)
-        if l == 0:
-            return 0
-        else:
-            for i, j in lets_remove:
-                board[i][j] = "X"
-            return l
+        for i, j in lets_remove:
+            board[i][j] = "X"
+        
+        return len(lets_remove)
 
 
     answer = 0
