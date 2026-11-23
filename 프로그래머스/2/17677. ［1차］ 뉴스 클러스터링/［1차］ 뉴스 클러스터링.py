@@ -1,5 +1,3 @@
-from copy import deepcopy
-
 def solution(str1, str2):
     str1 = str1.upper()
     str2 = str2.upper()
