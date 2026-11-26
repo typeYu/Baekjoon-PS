@@ -1,3 +1,5 @@
+# 그래프 시간초과 가지치기 관련 어려운 문제 - 나중에 다시 풀어볼 것
+
 from collections import deque
 
 def solution(n, m, x, y, r, c, k):
